@@ -4,7 +4,7 @@
  method that determines if all the boxes can be opened.
 '''
 
-
+# boxes = [[4, 6], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]
 def canUnlockAll(boxes):
     count = len(boxes)
     v = []
@@ -18,14 +18,16 @@ def canUnlockAll(boxes):
                         v.remove(0)
                         v.sort()
                 else:
-                    # print('false')
                     continue
     k = 1
+    print(v)
     while k < count - 1:
-        k += 1
-    if k not in v:
-        # print('false')
-        return False
-    else:
-        # print('true')
-        return True
+        if k not in v:
+            # print('false')
+            return False
+        else:
+            k += 1
+            # print('true')
+    return True
+
+# canUnlockAll(boxes)
