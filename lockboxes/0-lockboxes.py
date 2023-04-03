@@ -12,7 +12,7 @@ def canUnlockAll(boxes):
     for i in range(count):
         for j in boxes[i]:
             if j not in v:
-                if j != i:
+                if j != i and j is not None:
                     v.append(j)
                     if 0 in v:
                         v.remove(0)
