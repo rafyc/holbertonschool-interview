@@ -16,10 +16,8 @@ def canUnlockAll(boxes):
                 return False
     k = 1
     while k < count - 1:
-        k+= 1
+        k += 1
     if k not in v:
         return False
     else:
         return True
-
-canUnlockAll(boxes)
