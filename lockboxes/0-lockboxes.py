@@ -17,9 +17,9 @@ def canUnlockAll(boxes):
                     if 0 in v:
                         v.remove(0)
                         v.sort()
-            else:
-                # print('false')
-                return False
+                else:
+                    # print('false')
+                    continue
     k = 1
     while k < count - 1:
         k += 1
