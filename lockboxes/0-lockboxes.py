@@ -5,7 +5,6 @@
 '''
 
 
-
 def canUnlockAll(boxes):
     count = len(boxes)
     v = []
@@ -17,7 +16,7 @@ def canUnlockAll(boxes):
                     v.append(j)
                     if 0 in v:
                         v.remove(0)
-                       v.sort()
+                        v.sort()
             else:
                 # print('false')
                 return False
@@ -30,4 +29,3 @@ def canUnlockAll(boxes):
     else:
         # print('true')
         return True
-
