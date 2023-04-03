@@ -1,10 +1,10 @@
 #!/usr/bin/python3
+
 '''
  method that determines if all the boxes can be opened.
 '''
 
 
-boxes = [[1, 4, 5], [2], [5, 2], [3], [4, 1], [3, 5]]
 
 def canUnlockAll(boxes):
     count = len(boxes)
@@ -31,4 +31,3 @@ def canUnlockAll(boxes):
         # print('true')
         return True
 
-canUnlockAll(boxes)
