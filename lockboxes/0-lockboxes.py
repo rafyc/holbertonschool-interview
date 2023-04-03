@@ -19,16 +19,16 @@ def canUnlockAll(boxes):
                         v.remove(0)
                         v.sort()
             else:
-                print('false')
+                # print('false')
                 return False
     k = 1
     while k < count - 1:
         k += 1
     if k not in v:
-        print('false')
+        # print('false')
         return False
     else:
-        print('true')
+        # print('true')
         return True
 
 canUnlockAll(boxes)
