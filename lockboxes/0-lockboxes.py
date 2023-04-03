@@ -12,9 +12,9 @@ def canUnlockAll(boxes):
     r = range(1, count)
     for i in range(count):
         for j in boxes[i]:
+            if j != i:
                 if j not in v:
-                    if j != i:
-                        v.append(j)
+                    v.append(j)
                     if 0 in v:
                         v.remove(0)
                         v.sort()
