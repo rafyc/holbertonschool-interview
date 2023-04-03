@@ -20,7 +20,6 @@ def canUnlockAll(boxes):
                 else:
                     continue
     k = 1
-    print(v)
     while k < count - 1:
         if k not in v:
             # print('false')
