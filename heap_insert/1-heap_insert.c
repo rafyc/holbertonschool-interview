@@ -10,9 +10,10 @@
 
 heap_t *heap_insert(heap_t **root, int value)
 {
-    *root = 0;
-    if (value) {
-        return(0);
-    }
-       return(0);
+*root = 0;
+if (value)
+{
+return (0);
+}
+return (0);
 }
