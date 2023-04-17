@@ -5,25 +5,18 @@ method that calculates the fewest number of operations needed to result
 
 
 def minOperations(n):
-    if n == 1 or n == 0:
+    if n == 1:
         return 0
 
     ops = 0
-    curr = 1
-    copy = 0
+    factor = 2
 
-    while curr < n:
-        if n % curr == 0:
-            copy = curr
-        if copy > 0:
-            ops += 2  # copy-all and paste
-            curr += copy
-            copy = 0
+    while n > 1:
+        if n % factor == 0:
+            n //= factor
+            ops += factor
         else:
-            ops += 1  # paste
-            curr += curr
-
-        if curr > n:
-            return 0
+            factor += 1
 
     return ops
+
