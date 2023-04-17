@@ -3,8 +3,9 @@
 method that calculates the fewest number of operations needed to result
 """
 
+
 def minOperations(n):
-    if n == 1:
+    if n == 1 or n == 0:
         return 0
 
     # initialize table
