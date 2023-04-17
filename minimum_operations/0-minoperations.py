@@ -8,15 +8,22 @@ def minOperations(n):
     if n == 1 or n == 0:
         return 0
 
-    # initialize table
-    dp = [float('inf')] * (n + 1)
-    dp[1] = 0
+    ops = 0
+    curr = 1
+    copy = 0
 
-    # fill in table
-    for i in range(2, n+1):
-        for j in range(1, i):
-            if i % j == 0:
-                dp[i] = min(dp[i], dp[j] + i//j)
+    while curr < n:
+        if n % curr == 0:
+            copy = curr
+        if copy > 0:
+            ops += 2  # copy-all and paste
+            curr += copy
+            copy = 0
+        else:
+            ops += 1  # paste
+            curr += curr
 
-    # return result
-    return dp[n] if dp[n] != float('inf') else 0
+        if curr > n:
+            return 0
+
+    return ops
