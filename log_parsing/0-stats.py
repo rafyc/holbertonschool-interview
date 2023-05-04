@@ -22,7 +22,7 @@ countLine = 0
 
 def printStats():
     print('File size: {}'.format(totalSize))
-    for key in countStatus.keys():
+    for key in sorted(countStatus.keys()):
         if countStatus[key] > 0:
             print('{}:{}'.format(key, countStatus[key]))
 
