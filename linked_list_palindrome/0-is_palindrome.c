@@ -1,56 +1,56 @@
 #include "lists.h"
-#include <stdlib.h>
 
 /**
- * is_palindrome - function that check if a linked list is a palindrome
- * @head: the beginning of the linked list
+ * is_palindrome - checks if a singly linked list is a palindrome
+ * @head: the head of the linked list
  * Return: 1 if it is a palindrome, 0 otherwise
  */
-
 int is_palindrome(listint_t **head)
 {
-    listint_t *slow = *head, *fast = *head, *prev = NULL, *next;
-    listint_t *first_half = *head, *second_half;
+	int total_nodes = 1, half_nodes, count = 1;
+	listint_t *queue, *current, *prev = NULL, *next, *half_list, *current_head;
 
-    if (*head == NULL || (*head)->next == NULL)
-        return (1);
+	if (!head || !*head || !(*head)->next)
+		return (1);
 
-    while (fast != NULL && fast->next != NULL)
-    {
-        fast = fast->next->next;
-        prev = slow;
-        slow = slow->next;
-    }
+	current_head = *head;
+	queue = (*head)->next;
+	while (queue)
+	{
+		queue = queue->next;
+		total_nodes++;
+	}
+	half_nodes = total_nodes / 2;
 
-    if (fast != NULL)
-    {
-        second_half = slow->next;
-    }
-    else
-    {
-        second_half = slow;
-    }
+	current = *head;
+	while (count <= half_nodes)
+	{
+		current = current->next;
+		count++;
+	}
+	half_list = current;
 
-    prev->next = NULL;
+	current = half_list;
+	while (current)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	half_list->next = prev;
 
-    while (second_half != NULL)
-    {
-        next = second_half->next;
-        second_half->next = prev;
-        prev = second_half;
-        second_half = next;
-    }
+	current = prev;
+	queue = *head;
+	while (count <= half_nodes && queue)
+	{
+		if (current_head->n != queue->n)
+			return (0);
 
-    second_half = prev;
+		current_head = current_head->next;
+		queue = queue->next;
+		count++;
+	}
 
-    while (second_half != NULL)
-    {
-        if (first_half->n != second_half->n)
-            return (0);
-
-        first_half = first_half->next;
-        second_half = second_half->next;
-    }
-
-    return (1);
+	return (1);
 }
