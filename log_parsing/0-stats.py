@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 """Defines a script that reads stdin line by line and computes metrics"""
 from sys import stdin
 
@@ -17,10 +19,12 @@ countStatus = {
 totalSize = 0
 countLine = 0
 
+
 def printStats():
-        print('file size:{}'.format(totalSize))
-        for ele in countStatus:
-            print('{}:{}'.format(ele, countStatus[ele]))
+    print('file size:{}'.format(totalSize))
+    for ele in countStatus:
+        print('{}:{}'.format(ele, countStatus[ele]))
+
 
 if __name__ == "__main__":
 
@@ -45,6 +49,3 @@ if __name__ == "__main__":
         exit(1)
 
     printStats()
-
-
-
