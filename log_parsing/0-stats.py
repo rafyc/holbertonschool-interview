@@ -21,7 +21,7 @@ countLine = 0
 
 
 def printStats():
-    print('file size:{}'.format(totalSize))
+    print('File size: {}'.format(totalSize))
     for ele in countStatus:
         print('{}:{}'.format(ele, countStatus[ele]))
 
