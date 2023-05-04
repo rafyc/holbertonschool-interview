@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+
 """Defines a script that reads stdin line by line and computes metrics"""
+
 from sys import stdin
 
 countStatus = {
@@ -40,7 +42,7 @@ if __name__ == "__main__":
             except ValueError:
                 pass
 
-        if countLine % 10 = 0:
+        if countLine % 10 == 0:
             printStats()
 
     except KeyboardInterrupt:
