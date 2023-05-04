@@ -42,7 +42,7 @@ if __name__ == "__main__":
             except ValueError:
                 pass
 
-        if countLine == 10:
+        if countLine % 10 = 0:
             printStats()
 
     except KeyboardInterrupt:
