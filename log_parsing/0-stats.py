@@ -2,7 +2,6 @@
 """Defines a script that reads stdin line by line and computes metrics"""
 from sys import stdin
 
-
 countStatus = {
     200: 0,
     301: 0,
