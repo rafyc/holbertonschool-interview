@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
             try:
                 parse = line.split()
-                totalSize = int(parse[-1])
+                totalSize += int(parse[-1])
                 status = int(parse[-2])
                 countStatus[status] += 1
 
