@@ -18,6 +18,7 @@ countLine = 0
 
 
 def printStats():
+    """print metrics"""
     print('File size: {}'.format(totalSize))
     for key in sorted(countStatus.keys()):
         if countStatus[key] > 0:
