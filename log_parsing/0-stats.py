@@ -24,7 +24,7 @@ def printStats():
     print('File size: {}'.format(totalSize))
     for key in sorted(countStatus.keys()):
         if countStatus[key] > 0:
-            print('{}:{}'.format(key, countStatus[key]))
+            print('{}: {}'.format(key, countStatus[key]))
 
 
 if __name__ == "__main__":
