@@ -17,7 +17,6 @@
         }
         printf("\n");
     }
-}
 
 /**
  * print_grid - Print 3x3 grid
