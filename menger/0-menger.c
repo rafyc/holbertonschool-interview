@@ -12,7 +12,8 @@ void menger(int level)
     if (level < 0)
         return;
 
-    int i, j;
+    int i;
+    int j;
     int sub = pow(3, level);
 
     for (i = 0; i < sub; i++)
