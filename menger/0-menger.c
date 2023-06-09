@@ -9,12 +9,12 @@
 
 void menger(int level)
 {
-    if (level < 0)
-        return;
-
     int i;
     int j;
     int sub = pow(3, level);
+
+    if (level < 0)
+        return;
 
     for (i = 0; i < sub; i++)
     {
