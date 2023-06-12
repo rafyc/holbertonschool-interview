@@ -3,6 +3,7 @@
 Main file
 """
 
+
 def validUTF8(data):
     bit = 0
 
