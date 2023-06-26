@@ -1,4 +1,4 @@
-#include <binary_trees.h>
+#include "binary_trees.h"
 
 /**
 sorted_array_to_avl -function that builds an AVL tree from an array
@@ -6,19 +6,26 @@ sorted_array_to_avl -function that builds an AVL tree from an array
 @size: the number of element in the array
 */
 
-binary_tree_t *create(binary_tree_t parent, int value)
+binary_tree_t *create(binary_tree_t *parent, int value)
 {
+    binary_tree_t *new;
+
     new = malloc(sizeof(binary_tree_t));
-    if !new
+    if(new == NULL)
         return (NULL);
     new->parent = parent;
     new->left = NULL;
     new->right = NULL;
-    new->n = int
+    new->n = value;
     return (new);
 }
 
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-    int mid =
+    if (array == NULL || size == 0)
+        return NULL;
+
+    // Implementation logic to construct the AVL tree from the sorted array
+
+    return NULL;  // Return the root node of the constructed AVL tree
 }
