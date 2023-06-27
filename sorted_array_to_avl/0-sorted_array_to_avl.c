@@ -19,13 +19,41 @@ binary_tree_t *create(binary_tree_t *parent, int value)
     new->n = value;
     return (new);
 }
+/**
+ * create_avl - AVL tree node
+ * @array: first element of the array
+ * @start: Index of the first element
+ * @end: Index of the last element
+ * @parent: Pointer to the parent node
+ * Return: Pointer to the root node
+ */
+avl_t *create_avl(int *array, int start, int end, avl_t *parent)
+{
+	avl_t *new_node = NULL;
+	int mid = 0;
+
+	if (start > end)
+		return (NULL);
+
+	mid = (start + end) / 2;
+	new_node = create(parent, array[mid]);
+	if (new_node == NULL)
+		return (NULL);
+
+	new_node->parent = parent;
+	new_node->left = create_avl(array, start, mid - 1, new_node);
+	new_node->right = create_avl(array, mid + 1, end, new_node);
+
+	return (new_node);
+}
 
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-    if (array == NULL || size == 0)
-        return NULL;
+	avl_t *root = NULL;
 
-    // Implementation logic to construct the AVL tree from the sorted array
+	if (array == NULL || size == 0)
+		return (NULL);
 
-    return NULL;  // Return the root node of the constructed AVL tree
+	root = create_avl(array, 0, size - 1, NULL);
+	return (root);
 }
