@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/node
 import fetch from "node-fetch";
 const args = process.argv;
 
