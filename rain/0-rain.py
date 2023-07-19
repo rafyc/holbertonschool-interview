@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""
+0_main
+"""
 def rain(walls):
     n = len(walls)
     if n <= 2:
