@@ -1,53 +1,65 @@
 #include "sort.h"
 
-void swap(int* a, int* b)
+/**
+ * swap - Function that swap the position of two element
+ * @a: first element
+ * @b: second element
+ * Return: Nothing
+ */
+void swap(int *a, int *b)
 {
+	int tmp;
 
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 
-void heapify(int *arr, int i, int n) {
-    int largest = i;
-     // left
-    int left = 2 * i + 1;
+/**
+ * heapify - FUnction that create a max heap
+ * @array: the array
+ * @n: the size of the array
+ * @i: the index of non-leaf node
+ * @size: the size of the array for print function
+ * Return: Nothing
+ */
+void heapify(int *array, int n, int i, size_t size)
+{
+	int largest = i;
+	int left = 2 * i + 1;
+	int right = 2 * i + 2;
 
-    // right
-    int right = 2 * i + 2;
+	if (left < n && array[left] > array[largest])
+		largest = left;
+	if (right < n && array[right] > array[largest])
+		largest = right;
 
-    if (left < n && arr[left] > arr[largest])
-        largest = left;
-
-    if (right < n && arr[right] > arr[largest])
-        largest = right;
-
-    if (largest != i) {
-
-        swap(&arr[i], &arr[largest]);
-
-        // Recursively heapify the affected
-        // sub-tree
-        heapify(arr, n, largest);
-    }
+	if (largest != i)
+	{
+		swap(&array[i], &array[largest]);
+		print_array(array, size);
+		heapify(array, n, largest, size);
+	}
 }
 
-// Main function to do heap sort
-void heap_sort(int *array, size_t size) {
+/**
+ * heap_sort - Function that sorts an array of integers in ascending
+ * order using the Heap sort method
+ * @array: the array
+ * @size: the size of the array
+ * Return: Nothing
+ */
+void heap_sort(int *array, size_t size)
+{
+	int i;
+	/* Build max heap */
+	for (i = size / 2 - 1; i >= 0; i--)
+		heapify(array, size, i, size);
 
-    // Build max heap
-    for (int i = size / 2 - 1; i >= 0; i--)
-
-        heapify(array, size, i);
-
-    // Heap sort
-    for (int i = size - 1; i >= 0; i--) {
-
-        swap(&array[0], &array[i]);
-
-        // Heapify root element
-        // to get highest element at
-        // root again
-        heapify(array, i, 0);
-    }
+	for (i = size - 1; i > 0; i--)
+	{
+		swap(&array[0], &array[i]);
+		print_array(array, size);
+		heapify(array, i, 0, size);
+	}
 }
