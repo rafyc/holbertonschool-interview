@@ -1,4 +1,12 @@
-#include <stdio.h>
+#include "search_algos.h"
+
+/**
+ * print_array - function that print an array
+ * @array: an array
+ * @left: the beginning of the array
+ * @right: the end of the array
+ * Return: Nothing
+ */
 
 int advanced_binary_recursive(int *array, int left, int right, int value)
 {
