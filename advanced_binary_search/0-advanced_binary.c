@@ -2,12 +2,13 @@
 
 int advanced_binary_recursive(int *array, int left, int right, int value)
 {
+    int i = 0;
     if (left <= right)
     {
         int mid = left + (right - left) / 2;
 
         printf("Searching in array: ");
-        for (int i = left; i <= right; i++)
+        for (i = left; i <= right; i++)
         {
             printf("%d", array[i]);
             if (i < right)
