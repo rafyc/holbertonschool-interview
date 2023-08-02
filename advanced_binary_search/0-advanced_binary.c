@@ -15,7 +15,7 @@ int advanced_binary(int *array, size_t size, int value) {
         int mid = (low + high) / 2;
 
         if (array[mid] == value) {
-            return mid; // Return the index of the value.
+            return mid;
         } else if (value > array[mid]) {
             low = mid + 1;
         } else {
@@ -23,5 +23,4 @@ int advanced_binary(int *array, size_t size, int value) {
         }
     }
 
-    return -1; // Value not found in the array.
-}
+    return -1;
