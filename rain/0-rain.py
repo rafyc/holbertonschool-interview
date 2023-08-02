@@ -14,7 +14,7 @@ def rain(walls):
 
     left_max[0] = walls[0]
     for i in range(1, n):
-        left_max[i] = max(left_max[i - 1], walls[i])
+         
 
     right_max[n - 1] = walls[n - 1]
     for i in range(n - 2, -1, -1):
