@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-'''This module defines the count_words function
-'''
+"""This module defines the count_words function"""
 import requests
 
 
-def count_words(subreddit, word_list, after='', wordDict={}):
-    '''This method requests the api reddit to return the number time that
-    a word is counted in the title of all article for a given subreddit
-    '''
+def count_words(subreddit, word_list, word_dict={}, after=""):
+    """This method requests the api reddit to return the number time that
+    a word is counted in the title of all article for a given subreddit"""
     word_list = [ele.lower() for ele in word_list]
     if not wordDict:
         wordDict = {key: 0 for key in word_list}
