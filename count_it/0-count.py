@@ -22,5 +22,8 @@ def count_words(subreddit, word_list, after=None, counts=None):
         for word in word_list:
             if (word in title):
                 wordDict[word] += 1
-    for key, value in wordDict.items():
+
+    sorted_wordDict = dict(sorted(wordDict.items()))
+
+    for key, value in sorted_wordDict.items():
         print(f"{key}: {value}")
