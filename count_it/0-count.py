@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This module defines the count_words function"""
-
 import requests
+
 
 def count_words(subreddit, word_list, after=None, counts=None):
     """This method requests the api reddit to return the number time that
