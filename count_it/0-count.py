@@ -6,9 +6,10 @@ import requests
 
 
 def count_words(subreddit, word_list, after=None, counts=None):
-"""This method requests the api reddit to return the number time that
-a word is counted in the title of all article for a given subreddit"""
-
+    """
+    This method requests the api reddit to return the number time that
+    a word is counted in the title of all article for a given subreddit
+    """
     word_list = [ele.lower() for ele in word_list]
 
     user_agent = "Pleasant_Situation20"
