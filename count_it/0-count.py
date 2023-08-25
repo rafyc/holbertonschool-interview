@@ -33,3 +33,5 @@ def count_words(subreddit, word_list, word_dict={}, after=""):
     for key, value in sorted_wordDict.items():
         if (value != 0):
             print(f"{key}: {value}")
+
+    return sorted_wordDict
