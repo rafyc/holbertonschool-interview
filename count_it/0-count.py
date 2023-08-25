@@ -9,7 +9,8 @@ def count_words(subreddit, word_list, after='', wordDict={}):
     a word is counted in the title of all article for a given subreddit
     '''
     word_list = [ele.lower() for ele in word_list]
-    wordDict = {key: 0 for key in word_list}
+    if not wordDict:
+        wordDict = {key: 0 for key in word_list}
 
     user_agent = "Pleasant_Situation20"
     url = f'https://www.reddit.com/r/{subreddit}/hot.json'
