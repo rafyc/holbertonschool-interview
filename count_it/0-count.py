@@ -11,9 +11,7 @@ def count_words(subreddit, word_list, after=None, counts=None):
 
     user_agent = "Pleasant_Situation20"
     url = f'https://www.reddit.com/r/{subreddit}/hot.json'
-    headers = {
-    'User-Agent': user_agent
-    }
+    headers = {'User-Agent': user_agent}
     count = 0
     wordDict = {key: 0 for key in word_list}
     req = requests.get(url, headers=headers, allow_redirects=False)
