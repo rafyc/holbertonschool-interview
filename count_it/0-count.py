@@ -1,12 +1,24 @@
 #!/usr/bin/python3
-"""This module defines the count_words function"""
+"""This module defines the count_words function for counting word occurrences
+in Reddit titles."""
 import requests
 
 
 def count_words(subreddit, word_list, word_dict={}, after=""):
-    """This method requests the api reddit to return the number time that
-    a word is counted in the title of all article for a given subreddit"""
-    word_list = [ele.lower() for ele in word_list]
+"""Count the occurrences of specified words in the titles of Reddit articles.
+
+Args:
+subreddit (str): The name of the subreddit.
+word_list (list): A list of words to count occurrences for.
+word_dict (dict, optional): A dictionary to store word occurrences. Default is
+an empty dictionary.
+after (str, optional): Pagination token for Reddit API. Default is an empty
+string.
+
+Returns:
+dict: A dictionary containing word occurrences.
+
+"""
     if not word_dict:
         word_dict = {key: 0 for key in word_list}
 
