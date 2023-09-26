@@ -11,7 +11,7 @@ def makeChange(coins, total):
         total: the number to meet
         return: the minimum of coins or -1
     """
-    if total == 0:
+    if total == 0 or total < 0 :
         return 0
 
     min_coins = [float('inf')] * (total + 1)
