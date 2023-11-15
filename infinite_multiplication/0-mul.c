@@ -1,10 +1,10 @@
 #include "holberton.h"
 
 /**
-* _isdigit - function to check if an element is a digit or not
-* @c: the lement to test
-* Return: 1 if is a number 0 otherwise
-*/
+ * _isdigit - function that checks if the argument is a number
+ * @c: the argument
+ * Return: 1 if is a number, 0 otherwise
+ */
 int _isdigit(char *c)
 {
 	while (*c)
@@ -18,59 +18,105 @@ int _isdigit(char *c)
 }
 
 /**
-* length - function to calculate the length of a number
-* @number: the number which we wanr the length
-* Return: a number
-*/
-long int length(long int number)
+ * print_error - function that print the error message
+ * @str: the message to print
+ * Return: Nothing
+ */
+void print_error(char *str)
 {
-	long int digits = 1;
+	int i;
 
-	while (number >= 10)
-	{
-		number /= 10;
-		digits++;
-	}
-	return (digits);
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
+	_putchar('\n');
 }
 
 /**
-* main - function to multiply to number
-* @argc: argument count
-* @argv: argument value
-* Return: 1 if function finished
-*/
+ * _strlen - function that calculates the length of a string
+ * @str: the string
+ * Return: the length
+ */
+int _strlen(char *str)
+{
+	int i = 0;
+
+	while (str[i])
+		i++;
+
+	return (i);
+}
+
+/**
+ * multiply - function that computes the product of infinite numbers
+ * @str1: the number 1 in string
+ * @str2: the number 2 in string
+ * @len1: the length of the number 1
+ * @len2: the length of the number 2
+ * Return: Nothing
+ */
+void multiply(char *str1, char *str2, int len1, int len2)
+{
+	int i, j, num1, num2, carry;
+	int total = len1 + len2;
+	char *res = malloc(sizeof(char) * (total + 1));
+
+	if (res == NULL)
+		return;
+
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		carry = 0;
+		num1 = str1[i] - '0';
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			num2 = str2[j] - '0';
+			res[i + j] += num1 * num2 + carry;
+			carry = res[i + j] / 10;
+			res[i + j] %= 10;
+		}
+		if (carry > 0)
+			res[i + j] += carry;
+	}
+
+	for (i = 0; i < total - 1; i++)
+		_putchar(res[i] + '0');
+	_putchar('\n');
+
+	free(res);
+}
+
+/**
+ * main - Entry point
+ * @argc: the number of arguments
+ * @argv: the value of arguments
+ * Return: 0 success
+ */
 int main(int argc, char *argv[])
 {
-	long int num1, num2, i, index, result = 0;
-	long int len = 0;
-	char error[] = "Error\n";
-	long int *num;
+	char *num1 = argv[1];
+	char *num2 = argv[2];
+	int len1, len2;
 
-	if (argc < 3 || _isdigit(argv[1]) == 0 || _isdigit(argv[2]) == 0)
+	if (argc != 3 || _isdigit(num1) == 0 || _isdigit(num2) == 0)
 	{
-		for (i = 0; i < 6; i++)
-			_putchar(error[i]);
+		print_error("Error");
 		exit(98);
 	}
-	else
+
+	if (num1 == 0 || num2 == 0)
 	{
-		num1 = atol(argv[1]);
-		num2 = atol(argv[2]);
-		result = num1 * num2;
-		len = length(result);
-		num = malloc(len * sizeof(int));
-		for (i = 0; result > 0; i++)
-		{
-			num[i] = result % 10;
-			result = result / 10;
-		}
-		for (index = i - 1; index >= 0; index--)
-		{
-			_putchar(48 + num[index]);
-		}
-		_putchar('\n');
-		free(num);
+		_putchar(0);
+		return (0);
 	}
-	return (1);
+
+	len1 = _strlen(num1);
+	len2 = _strlen(num2);
+	if (len1 == 0 || len2 == 0)
+	{
+		_putchar(0);
+		return (0);
+	}
+
+	multiply(num1, num2, len1, len2);
+	return (0);
 }
